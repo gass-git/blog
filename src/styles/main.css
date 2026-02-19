@@ -1,0 +1,62 @@
+@import 'fonts.css';
+@import 'animations.css';
+@import 'post.css';
+@import 'header.css';
+@import 'home.css';
+
+:root {
+  --background: linear-gradient(#0f0f23, #1d1d43);
+  --max-width: 55rem;
+  --neon: #82f9ff;
+  --light-blue-09: rgba(129, 213, 255, 0.9);
+  --light-blue-05: rgba(129, 213, 255, 0.5);
+  --light-yellow: #ffffb4;
+  --body-font-family: 'Merriweather Sans Light';
+  --body-font-size: 1.1rem;
+  --border-radius: 0.5rem;
+  --primary-box-shadow: inset 0 0 0 0.1rem var(--light-blue-05);
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  min-height: 100vh;
+}
+
+body {
+  max-width: var(--max-width);
+  margin: 0 auto 0 auto;
+  padding: 0;
+}
+
+h1 {
+  color: rgb(241, 241, 241);
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.capitalize-first::first-letter {
+  text-transform: capitalize;
+}
+
+.date {
+  font-family: 'Inter Regular';
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.1rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}

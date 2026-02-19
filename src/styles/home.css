@@ -1,0 +1,35 @@
+.post-card {
+  padding: 1.5625rem 2.1875rem 1.5625rem 1.25rem;
+  margin-top: 1.25rem;
+  border-radius: var(--border-radius);
+  opacity: 0.9;
+}
+
+.post-card:hover {
+  opacity: 1;
+  box-shadow: var(--primary-box-shadow);
+}
+
+.post-card .title {
+  font-family: 'Inter Extra Bold';
+  color: rgb(241, 241, 241);
+  font-size: 2.25rem;
+}
+
+.post-card p {
+  font-family: 'Merriweather Sans Light';
+  color: #ececec;
+  text-align: justify;
+  line-height: 1.8;
+  letter-spacing: 0.04rem;
+}
+
+.post-card .trim {
+  font-family: 'Merriweather Sans Light';
+  font-size: var(--body-font-size);
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
