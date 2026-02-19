@@ -28,3 +28,13 @@ jobs:
           path: ./dist
 
       - uses: actions/deploy-pages@v4
+
+      - name: Create Deployment
+        uses: peter-evans/create-deployment@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: github-pages
+          ref: main
+          auto_merge: false
+          transient_environment: false
+          required_contexts: []
