@@ -14,10 +14,6 @@ export default async function router(root, postsMetaData) {
     return;
   }
 
-  console.log("postsMetaData: " + postsMetaData);
-  console.log("postExists function: " + postExists(postsMetaData, pathname));
-  console.log("pathname: " + pathname);
-
   if (postExists(postsMetaData, pathname)) {
     render("post", root, views, postsMetaData, undefined, pathname);
     return;
