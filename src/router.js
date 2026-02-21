@@ -5,7 +5,9 @@ import post from "./views/post";
 import notFound from "./views/notFound";
 
 export default function initRouter(root, postsMetaData) {
-  window.addEventListener("load", () => handleRoute(root, postsMetaData));
+  // Render current route immediately.
+  handleRoute(root, postsMetaData);
+
   window.addEventListener("hashchange", () => handleRoute(root, postsMetaData));
 }
 
