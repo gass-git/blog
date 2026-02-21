@@ -4,19 +4,21 @@ import home from "./views/home";
 import post from "./views/post";
 import notFound from "./views/notFound";
 
+export default function initRouter(root, postsMetaData) {
+  window.addEventListener("load", handleRoute(root, postsMetaData));
+  window.addEventListener("hashchange", handleRoute(root, postsMetaData));
+}
+
 /**
  * GitHub Pages is a static file server. It does not understand client-side routing.
  * Everything after # stays client-side.
  *
  * This is the reason why we use hash routing.
  */
-
-export default async function router(root, postsMetaData) {
+async function handleRoute(root, postsMetaData) {
   const pathname = removeHash(window.location.hash);
   const urlParams = new URLSearchParams(window.location.search);
   const views = { home, post, notFound };
-
-  console.log(pathname);
 
   if (pathname === "" || pathname === "home") {
     render("home", root, views, postsMetaData, urlParams.get("tag"));
