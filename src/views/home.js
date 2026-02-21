@@ -1,5 +1,5 @@
-import { postsMetaData } from "../main";
-import { beautifyDate } from "blazed-past-us";
+import { postsMetaData } from '../main';
+import { beautifyDate } from 'blazed-past-us';
 
 export default function home(tag) {
   const baseURL = import.meta.env.BASE_URL;
@@ -15,8 +15,8 @@ export default function home(tag) {
           <p class="trim">${post.brief}</p>
         </div>
       </a>
-    `,
+    `
     );
 
-  return postsHtmlArray.join("");
+  return postsHtmlArray.join('');
 }

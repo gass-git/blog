@@ -1,13 +1,10 @@
-import config from "./config.json";
-import * as blazed from "blazed-past-us";
-import initRouter from "./router";
-import pkg from "../package.json";
+import config from './config.json';
+import * as blazed from 'blazed-past-us';
+import initRouter from './router';
+import pkg from '../package.json';
 
 const root = document.getElementById(config.root_id);
-const postsMetaData = await blazed.getPostsMetaData(
-  import.meta.env.BASE_URL,
-  config,
-);
+const postsMetaData = await blazed.getPostsMetaData(import.meta.env.BASE_URL, config);
 
 initRouter(root, postsMetaData);
 
@@ -20,6 +17,5 @@ initRouter(root, postsMetaData);
  */
 blazed.setTitle(document, config.title_id, pkg.name);
 blazed.boltRotator(document, config.logo_wrapper_id);
-blazed.showCosmicSpeed(document, config.speed_element_id);
 
 export { root, postsMetaData };
