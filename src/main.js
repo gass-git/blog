@@ -15,8 +15,8 @@ initRouter(root, postsMetaData);
  * These are demo features included in the starter template.
  * You can safely remove any of them.
  */
-blazed.setTitle(document, config.title_id, pkg.name);
-blazed.boltRotator(document, config.logo_id);
+blazed.setTitle(document, pkg.name);
+blazed.boltRotator(document);
 
 const postsHTML = await blazed.getAllPostsHTML(postsMetaData, import.meta.env.BASE_URL);
 

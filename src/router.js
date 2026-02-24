@@ -1,37 +1,27 @@
-import { render, postExists, getPathnameFromLocationHash } from 'blazed-past-us';
+import { render, postExists, getLocationHashSpecifics } from 'blazed-past-us';
 import home from './views/home';
 import post from './views/post';
 import notFound from './views/notFound';
 
 export default function initRouter(root, postsMetaData) {
-  // Render current route immediately.
-  handleRoute(root, postsMetaData);
-
-  window.addEventListener('hashchange', () => handleRoute(root, postsMetaData));
+  routeRenderer(root, postsMetaData);
+  window.addEventListener('hashchange', () => routeRenderer(root, postsMetaData));
 }
 
-/**
- * GitHub Pages is a static file server. It does not understand client-side routing.
- * Everything after # stays client-side.
- *
- * This is the reason why we use hash routing.
- */
-async function handleRoute(root, postsMetaData) {
-  const hashRoute = window.location.hash;
-  const pathname = getPathnameFromLocationHash(hashRoute);
-  const queryString = hashRoute.split('?')[1] || '';
-  const urlParams = new URLSearchParams(queryString);
+function routeRenderer(root, postsMetaData) {
+  const { pathname, queryString, urlParams } = getLocationHashSpecifics(window);
   const views = { home, post, notFound };
 
-  if (pathname === '' || pathname === 'home' || queryString) {
-    render('home', root, views, postsMetaData, urlParams.get('tags'));
-    return;
-  }
+  switch (true) {
+    case pathname === '' || pathname === 'home' || queryString:
+      render('home', root, views, postsMetaData, urlParams.get('tags'));
+      break;
 
-  if (postExists(postsMetaData, pathname)) {
-    render('post', root, views, postsMetaData, undefined, pathname);
-    return;
-  }
+    case postExists(postsMetaData, pathname):
+      render('post', root, views, postsMetaData, undefined, pathname);
+      break;
 
-  render('404', root, views, postsMetaData);
+    default:
+      render('404', root, views, postsMetaData);
+  }
 }
