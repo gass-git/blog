@@ -1,7 +1,7 @@
 {
   "base_url": "/blog/",
   "posts_data_path": "posts/data.json",
-  "title_id": "title",
+  "subtitle": "notes from a dev...",
   "root_id": "root",
   "tags": {
     "javascript": { "color": "#f5dd42" },

@@ -1,12 +1,12 @@
-import config from './config.json';
-import * as blazed from 'blazed-past-us';
-import initRouter from './router';
-import pkg from '../package.json';
+import config from "./config.json";
+import * as blazed from "blazed-past-us";
+import initRouter from "./router";
+import pkg from "../package.json";
 
-const root = document.getElementById(config.root_id);
-const postsMetaData = await blazed.getPostsMetaData(import.meta.env.BASE_URL, config);
+const root = document.getElementById("root");
+const { postsMetadata, postsHTML } = await blazed.fetchResources(config);
 
-initRouter(root, postsMetaData);
+initRouter(root, postsMetadata, postsHTML);
 
 /**
  * ----------------------------
@@ -15,9 +15,5 @@ initRouter(root, postsMetaData);
  * These are demo features included in the starter template.
  * You can safely remove any of them.
  */
-blazed.setTitle(document, pkg.name);
-blazed.boltRotator(document);
-
-const postsHTML = await blazed.getAllPostsHTML(postsMetaData, import.meta.env.BASE_URL);
-
-export { root, postsMetaData, postsHTML };
+blazed.setTitleAndSubtitle(pkg.name, config);
+blazed.activateBoltRotator();
