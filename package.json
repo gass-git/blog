@@ -8,7 +8,7 @@
   "main": "./src/index.html",
   "scripts": {
     "build": "rimraf dist && vite build && blazed build",
-    "dev": "nodemon --watch src --ext ts,json,css,html --exec \"npm run build && vite preview\""
+    "dev": "nodemon --watch src --ext ts,css,html --exec \"npm run build && vite preview\""
   },
   "devDependencies": {
     "nodemon": "^3.1.11",
@@ -16,7 +16,7 @@
     "vite": "^7.2.2"
   },
   "dependencies": {
-    "blazed-past-us": "0.5.5",
+    "blazed-past-us": "../blazed-past-us/blazed-past-us-0.6.7.tgz",
     "three": "^0.182.0"
   }
 }
