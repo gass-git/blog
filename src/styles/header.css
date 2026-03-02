@@ -1,8 +1,11 @@
 header {
+  z-index: 2;
   display: flex;
+  align-self: flex-start;
   flex-direction: row;
   align-items: center;
-  margin: 4.5rem 0 3.5rem 1rem;
+  padding: 5rem 0 3rem 1rem;
+  width: clamp(55rem, 55rem, 55rem);
 }
 
 header .top {
@@ -11,7 +14,7 @@ header .top {
 }
 
 header .top .title {
-  font-family: 'Bangers Regular';
+  font-family: "Bangers Regular";
   font-size: 3.1rem;
   color: var(--light-blue-09);
   letter-spacing: 0.15rem;
@@ -20,7 +23,7 @@ header .top .title {
 header .top .subtitle {
   font-size: 0.85rem;
   padding-left: 0.3rem;
-  font-family: 'Inter Extra Bold';
+  font-family: "Inter Extra Bold";
   color: var(--light-yellow);
   text-transform: uppercase;
   letter-spacing: 0.15rem;
