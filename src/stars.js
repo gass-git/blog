@@ -1,12 +1,12 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
 const config = {
-  numberOfStars: Math.floor(0.07 * window.innerWidth),
+  numberOfStars: Math.floor(0.08 * window.innerWidth),
   heightUsage: 0.25,
   twinkleSpeed: 0.01,
-  twinkleCycleLength: 3,
+  twinkleCycleLength: 2,
   background: { color: 0x000000, opacity: 0 },
-  starMaxSize: 4,
+  starMaxSize: 5,
 };
 
 (function main() {
@@ -39,12 +39,15 @@ const config = {
 })();
 
 function handleLocalStorageActions() {
-  if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+  if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
     localStorage.clear();
   }
 
-  if (!localStorage.getItem('positions')) {
-    localStorage.setItem('positions', JSON.stringify(createPositions(config.numberOfStars)));
+  if (!localStorage.getItem("positions")) {
+    localStorage.setItem(
+      "positions",
+      JSON.stringify(createPositions(config.numberOfStars)),
+    );
   }
 }
 
@@ -72,7 +75,7 @@ function createTwinkleSpeeds(n) {
 }
 
 function getPositions() {
-  return JSON.parse(localStorage.getItem('positions'));
+  return JSON.parse(localStorage.getItem("positions"));
 }
 
 function starGeometry(positions) {
@@ -87,13 +90,19 @@ function starGeometry(positions) {
     opacities[i] = Math.random() * 4;
   }
 
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('aSize', new THREE.BufferAttribute(sizes, 1));
-  geometry.setAttribute('aOpacity', new THREE.BufferAttribute(opacities, 1));
-  geometry.setAttribute('aTwinkle', new THREE.BufferAttribute(createTwinkleSpeeds(count), 1));
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute("aSize", new THREE.BufferAttribute(sizes, 1));
+  geometry.setAttribute("aOpacity", new THREE.BufferAttribute(opacities, 1));
   geometry.setAttribute(
-    'aOffset',
-    new THREE.BufferAttribute(createRandomStarPhases(count, config.numberOfStars / 10), 1)
+    "aTwinkle",
+    new THREE.BufferAttribute(createTwinkleSpeeds(count), 1),
+  );
+  geometry.setAttribute(
+    "aOffset",
+    new THREE.BufferAttribute(
+      createRandomStarPhases(count, config.numberOfStars / 10),
+      1,
+    ),
   );
 
   return geometry;
@@ -152,8 +161,11 @@ function starMaterial() {
 }
 
 function handleResize(renderer, camera) {
-  window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight * config.heightUsage);
+  window.addEventListener("resize", () => {
+    renderer.setSize(
+      window.innerWidth,
+      window.innerHeight * config.heightUsage,
+    );
     camera.updateProjectionMatrix();
   });
 }

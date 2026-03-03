@@ -1,4 +1,4 @@
-import { beautifyDate, filterByUrlQueryIfPresent } from 'blazed-past-us';
+import { beautifyDate, filterByUrlQueryIfPresent } from "blazed-past-us";
 
 export default function home(tags, postsMetadata) {
   const baseURL = import.meta.env.BASE_URL;
@@ -14,7 +14,7 @@ export default function home(tags, postsMetadata) {
           <p class="trim">${post.brief}</p>
         </div>
       </a>
-    `
+    `,
     )
-    .join('');
+    .join("");
 }
