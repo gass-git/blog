@@ -13,13 +13,13 @@
 }
 
 .post-card .title {
-  font-family: 'Inter Extra Bold';
+  font-family: "Inter Extra Bold";
   font-size: 2.25rem;
   color: rgb(241, 241, 241);
 }
 
 .post-card p {
-  font-family: 'Merriweather Sans Light';
+  font-family: "Merriweather Sans Light";
   color: #ececec;
   text-align: justify;
   line-height: 1.8;
@@ -27,7 +27,7 @@
 }
 
 .post-card .trim {
-  font-family: 'Merriweather Sans Light';
+  font-family: "Merriweather Sans Light";
   font-size: var(--body-font-size);
   display: -webkit-box;
   line-clamp: 2;
