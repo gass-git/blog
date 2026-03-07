@@ -28,6 +28,7 @@ a:link,
 a:visited {
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  color: var(--light-yellow);
 }
 
 html,
@@ -43,6 +44,12 @@ html {
 
 h1 {
   color: var(--h1-color);
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+  border-radius: 1rem;
 }
 
 section {

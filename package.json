@@ -16,7 +16,7 @@
     "vite": "^7.2.2"
   },
   "dependencies": {
-    "blazed-past-us": "0.7.8",
+    "blazed-past-us": "^0.7.9",
     "three": "^0.182.0"
   }
 }
