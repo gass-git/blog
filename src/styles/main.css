@@ -5,9 +5,11 @@
 @import "footer.css";
 @import "header.css";
 @import "home.css";
+@import "code.css";
 
 :root {
   --background: #181e3f;
+  --inline-code-bg-color: #3b4683;
   --max-width: 55rem;
   --neon: #82f9ff;
   --post-title-color: rgb(241, 241, 241);
