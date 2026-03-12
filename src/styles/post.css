@@ -3,6 +3,12 @@
   margin-top: 1.25rem;
 }
 
+@media (max-width: 40rem) {
+  .post {
+    padding: 1.6rem 0.5rem 1.6rem 0.5rem;
+  }
+}
+
 .post p {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size);

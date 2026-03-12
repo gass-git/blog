@@ -12,6 +12,12 @@
   }
 }
 
+@media (max-width: 40rem) {
+  .post-card {
+    padding: 1.6rem 0.5rem 1.6rem 0.5rem;
+  }
+}
+
 .post-card .title {
   font-family: "Inter Extra Bold";
   font-size: 2.25rem;
