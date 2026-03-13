@@ -17,6 +17,7 @@
   --light-blue-05: rgba(129, 213, 255, 0.5);
   --light-blue-02: rgba(129, 213, 255, 0.2);
   --light-yellow: #ffffb4;
+  --yellow: #ffff5c;
   --body-font-family: "Merriweather Sans Light";
   --body-font-size: 1rem;
   --border-radius: 0.5rem;
@@ -30,7 +31,7 @@ a:link,
 a:visited {
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
-  color: var(--light-yellow);
+  color: var(--yellow);
 }
 
 html,

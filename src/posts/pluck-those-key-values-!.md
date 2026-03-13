@@ -15,7 +15,7 @@ const people = [
 
 And we want to pluck only the names. So, our objective is to have a fully typed function capable of returning a list such as the following:
 
-```ts
+```ts /pluck(people, "name")/
 console.log(pluck(people, "name")); // ["Robert", "Anna", "Pepe"]
 ```
 
@@ -25,35 +25,32 @@ The following generic function will accept `T` as a type and a key `K` that `ext
 
 ![subset](pluck-svg-1.svg)
 
-Let's go step by step. We now have:
+This translates into code as follows:
 
-```ts
+```ts /<T, K extends keyof T>/
 function pluck<T, K extends keyof T>(list, key) {
   return list.map((person) => person[key]);
 }
 ```
 
-Okay, so let's continue. Then we see that the function accepts two parameters: `list` an array of objects and `key` being the string key we want to pluck from the people list.
+As we can see, the function accepts two parameters: `list` an Array of objects and `key` being the string key we want to pluck from people list.
 
-By using generics, TS can infer the type `T` of the objects passed as an argument to the function and by consequence it can also infer the keys of the object. So we can tell TS that `list` parameter will be of type `Array<T>` and `key` is going to be one of the keys of `T`
+By using generics, TS can infer the type `T` of the objects passed to the function and by consequence it can also infer the keys of the object. So we can tell TS that `list` parameter will be of type `Array<T>` and `key` is going to be one of the keys of `T`
 
-```ts
+```ts /list: Array<T>, key: K/
 function pluck<T, K extends keyof T>(list: Array<T>, key: K) {
   return list.map((person) => person[key]);
 }
 ```
 
-Lastly what remains is to infer the returned type. Since we are using `Array.map()` we have the first clue, it returns an Array.
+Lastly what remains is to infer the returned type. Since we are using `Array.map()` we have the first clue: it returns an Array.
 
-The remaining question is the type of the elements inside that array. If `T` represents the type of the objects in the list and `K` is the key we want to pluck, then `T[K]`represents the type of that specific property.
+The remaining question is the type of the elements inside that Array. If `T` represents the type of the objects in the list and `K` is the key we want to pluck, then `T[K]`represents the type of that specific property.
 
-Therefore, each mapped element will be of type `T[K]`, and the overall return type becomes `Array<T[K]>`.
+Therefore, each mapped element will be of type `T[K]`, and the overall return type becomes `Array<T[K]>`
 
-```ts
+```ts /Array<T[K]>/
 function pluck<T, K extends keyof T>(list: T[], key: K): Array<T[K]> {
   return list.map((person) => person[key]);
 }
 ```
-
-And there you have it!
-The end.
