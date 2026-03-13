@@ -6,7 +6,7 @@ Those links you often click are not regular text. These are called `hypertext` a
 
 I'm now going to use a hypertext so that you can look into the person who envisioned it in the early 1960's. And that person was [Ted Nelson](https://en.wikipedia.org/wiki/Ted_Nelson), if you already didn't know about him.
 
-In HTML for sure you've used the `href` abbreviation of `Hypertext Reference` attribute which is used to specify a `hyperlink` destination. This attribute can be used within different HTML elements for different purposes:
+In HTML for sure you've used the `href` attribute, an abbreviation of `Hypertext Reference`, which is used to specify a `hyperlink` destination. This attribute can be used within different HTML elements for different purposes:
 
 ```html
 <!-- anchor -->
